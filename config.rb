@@ -13,12 +13,20 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
+
+
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
 activate :livereload
 
+require "kramdown"
+set :markdown_engine, ::Tilt::KramdownTemplate
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/
+
+_posts.each.do |blog_post|
+  proxy "/blog/#{blog_post.title}.html",, "/templates/blog.html", locals:{ blog_post: blog_post}
+end
 
 # proxy(
 #   '/this-page-has-no-template.html',
