@@ -24,7 +24,7 @@ set :markdown_engine, ::Tilt::KramdownTemplate
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/
 
-_posts.each.do |blog_post|
+_posts.each do |blog_post|
   proxy "/blog/#{blog_post.title}.html",, "/templates/blog.html", locals:{ blog_post: blog_post}
 end
 
