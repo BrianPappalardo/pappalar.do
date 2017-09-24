@@ -16,5 +16,6 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Foo", name: "foo", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-
+      - {label: "Draft", name: "published", widget: "hidden", default: "false"}
+      
 publish_mode: editorial_workflow
